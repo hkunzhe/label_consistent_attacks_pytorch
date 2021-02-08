@@ -1,0 +1,16 @@
+---
+dataset_dir: "~/dataset/cifar-10/cifar-10-batches-py"
+num_classes: 10
+adv_dataset_dir: "./data/adv_dataset"
+adv_model_path: "./model/adv_models/cifar_resnet_e8_a2_s10.pth"
+size: [32, 32, 3]  # [height, weight, channel]
+normalization_layer: null
+loader:
+  batch_size: 512
+  num_workers: 4
+  pin_memory: True
+pgd:
+  eps: 8
+  alpha: 1.5
+  steps: 100
+  max_pixel: 255

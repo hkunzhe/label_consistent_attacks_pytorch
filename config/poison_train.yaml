@@ -1,0 +1,22 @@
+---
+dataset_dir: ~/dataset/cifar-10/cifar-10-batches-py
+adv_dataset_path: ./data/adv_dataset/cifar_resnet_e8_a1.5_s100.npz
+backdoor:
+  poison_ratio: 0.5
+  target_label: 3
+  clbd:
+    trigger_path: ./data/trigger/cifar_1.png
+loader:
+  batch_size: 128
+  num_workers: 4
+  pin_memory: True
+optimizer:
+  SGD:
+    weight_decay: 2.e-4
+    momentum: 0.9
+    lr: 0.1
+lr_scheduler:
+  multi_step:
+    milestones: [100, 150]
+    gamma: 0.1
+num_epochs: 200
