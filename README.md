@@ -14,7 +14,7 @@ The official Tensorflow implementation is [here](https://github.com/MadryLab/lab
 ## Usage
 
 ### Step1: Train an Adversarially Robust Model
-For fast adversarial training, please refer to [fast_adversarial](https://github.com/locuslab/fast_adversarial). I also provide a PGD adversarially pretrained ResNet-18 model in [here](). I get the pretrained model by running [train_pgd.py](https://github.com/locuslab/fast_adversarial/blob/master/CIFAR10/train_pgd.py). The parameters of PGD advesarial traning is the same with the paper, which in turn was adapted from [cifar10_challenge](https://github.com/MadryLab/cifar10_challenge).
+For fast adversarial training, please refer to [fast_adversarial](https://github.com/locuslab/fast_adversarial). I also provide a PGD adversarially pretrained ResNet-18 model in [here](model/adv_models/cifar_resnet_e8_a2_s10.pth). I get the pretrained model by running [train_pgd.py](https://github.com/locuslab/fast_adversarial/blob/master/CIFAR10/train_pgd.py). The parameters of PGD advesarial traning are the same with the paper, which in turn was adapted from [cifar10_challenge](https://github.com/MadryLab/cifar10_challenge).
 
 ### Step2: Generate Adversarially Peturbed Dataset
 ```
@@ -26,4 +26,4 @@ This will generate adversarially peturbed dataset to `data/adv_dataset/craft.npz
 ```
 python poison_train.py --config config/poison_train.yaml --gpu 0
 ```
-__Note:__ For simplicity, I use a [randomly generated trigger]() instead of a less visible and four-corner trigger in the paper section 4.4 (Improving backdoor trigger design). And the parameters of poison training in `config/poison_train.yaml` are adapted from [pytorch-cifar](https://github.com/kuangliu/pytorch-cifar), which may be different from the paper. Please refer to the experimental setup in the paper Appendix A.
+__Note:__ For simplicity, I use a [randomly generated trigger](data/trigger/cifar_1.png) instead of a less visible and four-corner trigger in the paper section 4.4 (Improving backdoor trigger design). And the parameters of poison training in `config/poison_train.yaml` are adapted from [pytorch-cifar](https://github.com/kuangliu/pytorch-cifar), which may be different from the paper. Please refer to the experimental setup in the paper Appendix A.
